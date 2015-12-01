@@ -209,7 +209,7 @@ class ListUser(lister.Lister):
     def take_action(self, parsed_args):
         identity_client = self.app.client_manager.identity
 
-        domain = None
+        domain = 'default'
         if parsed_args.domain:
             domain = common.find_domain(identity_client,
                                         parsed_args.domain).id
@@ -265,7 +265,7 @@ class ListUser(lister.Lister):
             column_headers[2] = 'Project'
             column_headers[3] = 'Domain'
         else:
-            columns = ['ID', 'Name']
+            columns = ['ID', 'Domain Id', 'Name']
             column_headers = columns
 
         return (
