@@ -606,7 +606,7 @@ class TestUserList(TestUser):
 
         # Set expected values
         kwargs = {
-            'domain': None,
+            'domain': identity_fakes.domain_id,
             'group': None,
         }
 
@@ -644,7 +644,7 @@ class TestUserList(TestUser):
             **kwargs
         )
 
-        collist = ['ID', 'Name']
+        collist = ['ID', 'Domain Id', 'Name']
         self.assertEqual(collist, columns)
         datalist = ((
             identity_fakes.user_id,
@@ -666,7 +666,7 @@ class TestUserList(TestUser):
 
         # Set expected values
         kwargs = {
-            'domain': None,
+            'domain': identiy_fakes.domain_id,
             'group': identity_fakes.group_id,
         }
 
@@ -696,7 +696,7 @@ class TestUserList(TestUser):
 
         # Set expected values
         kwargs = {
-            'domain': None,
+            'domain': identity_fakes.domain_id,
             'group': None,
         }
 
@@ -744,7 +744,7 @@ class TestUserList(TestUser):
         self.role_assignments_mock.list.assert_called_with(**kwargs)
         self.users_mock.get.assert_called_with(identity_fakes.user_id)
 
-        collist = ['ID', 'Name']
+        collist = ['ID', 'Domain Id', 'Name']
         self.assertEqual(collist, columns)
         datalist = ((
             identity_fakes.user_id,
